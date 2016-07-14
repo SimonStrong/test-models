@@ -1,6 +1,15 @@
 
+"""
+Python model test-models/tests/number_handling/test_number_handling.py
+Translated using PySD version 0.5.1
+"""
 from __future__ import division
 import numpy as np
+<<<<<<< HEAD
+=======
+from pysd import utils
+import xarray as xr
+>>>>>>> 25bd4206de9f5719aad5a04a2320edc93351758a
 
 from pysd.functions import cache
 from pysd import functions
@@ -27,7 +36,10 @@ def equality():
     (equality)
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 25bd4206de9f5719aad5a04a2320edc93351758a
     """
     return functions.if_then_else(quotient() == quotient_target(), 1, 0)
 
@@ -39,7 +51,10 @@ def final_time():
     ----------
     (final_time)
     Month
+<<<<<<< HEAD
 
+=======
+>>>>>>> 25bd4206de9f5719aad5a04a2320edc93351758a
     The final time for the simulation.
     """
     return 1
@@ -53,7 +68,10 @@ def denominator():
     (denominator)
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 25bd4206de9f5719aad5a04a2320edc93351758a
     """
     return 4
 
@@ -66,7 +84,10 @@ def numerator():
     (numerator)
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 25bd4206de9f5719aad5a04a2320edc93351758a
     """
     return 3
 
@@ -78,7 +99,10 @@ def saveper():
     -------
     (saveper)
     Month [0,?]
+<<<<<<< HEAD
 
+=======
+>>>>>>> 25bd4206de9f5719aad5a04a2320edc93351758a
     The frequency with which output is stored.
     """
     return time_step()
@@ -91,7 +115,10 @@ def initial_time():
     ------------
     (initial_time)
     Month
+<<<<<<< HEAD
 
+=======
+>>>>>>> 25bd4206de9f5719aad5a04a2320edc93351758a
     The initial time for the simulation.
     """
     return 0
@@ -104,7 +131,10 @@ def time_step():
     ---------
     (time_step)
     Month [0,?]
+<<<<<<< HEAD
 
+=======
+>>>>>>> 25bd4206de9f5719aad5a04a2320edc93351758a
     The time step for the simulation.
     """
     return 1
@@ -118,7 +148,10 @@ def quotient_target():
     (quotient_target)
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 25bd4206de9f5719aad5a04a2320edc93351758a
     """
     return 0.75
 
@@ -131,7 +164,10 @@ def quotient():
     (quotient)
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 25bd4206de9f5719aad5a04a2320edc93351758a
     """
     return numerator() / denominator()
 

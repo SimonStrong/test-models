@@ -5,6 +5,8 @@ Translated using PySD version 0.5.1
 """
 from __future__ import division
 import numpy as np
+from pysd import utils
+import xarray as xr
 
 from pysd.functions import cache
 from pysd import functions
@@ -33,7 +35,6 @@ def total_population():
     ----------------
     (total_population)
     Persons
-
     This is just a simplification to make it easer to track how many folks
                 there are without having to sum up all the stocks.
     """
@@ -47,7 +48,6 @@ def final_time():
     ----------
     (final_time)
     Day
-
     The final time for the simulation.
     """
     return 100
@@ -61,7 +61,6 @@ def recovering():
     (recovering)
     Persons/Day
 
-
     """
     return infectious() / duration()
 
@@ -73,7 +72,6 @@ def susceptible():
     -----------
     (susceptible)
     Persons
-
     The population that has not yet been infected.
     """
     return _state['susceptible']
@@ -85,7 +83,6 @@ def _init_recovered():
     --------
     (_init_recovered)
     See docs for recovered
-
     Provides initial conditions for recovered function
     """
     return 0
@@ -97,7 +94,6 @@ def _init_infectious():
     --------
     (_init_infectious)
     See docs for infectious
-
     Provides initial conditions for infectious function
     """
     return 5
@@ -110,7 +106,6 @@ def contact_infectivity():
     -------------------
     (contact_infectivity)
     Persons/Persons/Day
-
     A joint parameter listing both how many people you contact, and how likely
                 you are to give them the disease.
     """
@@ -124,7 +119,6 @@ def infectious():
     ----------
     (infectious)
     Persons
-
     The population with the disease, manifesting symptoms, and able to
                 transmit it to other people.
     """
@@ -138,7 +132,6 @@ def _drecovered_dt():
     --------
     (_drecovered_dt)
     See docs for recovered
-
     Provides derivative for recovered function
     """
     return recovering()
@@ -151,7 +144,6 @@ def _dinfectious_dt():
     --------
     (_dinfectious_dt)
     See docs for infectious
-
     Provides derivative for infectious function
     """
     return succumbing() - recovering()
@@ -164,7 +156,6 @@ def saveper():
     -------
     (saveper)
     Day [0,?]
-
     The frequency with which output is stored.
     """
     return time_step()
@@ -177,7 +168,6 @@ def initial_time():
     ------------
     (initial_time)
     Day
-
     The initial time for the simulation.
     """
     return 0
@@ -189,7 +179,6 @@ def _init_susceptible():
     --------
     (_init_susceptible)
     See docs for susceptible
-
     Provides initial conditions for susceptible function
     """
     return total_population()
@@ -202,7 +191,6 @@ def duration():
     --------
     (duration)
     Days
-
     How long are you infectious for?
     """
     return 5
@@ -215,7 +203,6 @@ def time_step():
     ---------
     (time_step)
     Day [0,?]
-
     The time step for the simulation.
     """
     return 0.03125
@@ -228,7 +215,6 @@ def _dsusceptible_dt():
     --------
     (_dsusceptible_dt)
     See docs for susceptible
-
     Provides derivative for susceptible function
     """
     return -succumbing()
@@ -242,7 +228,6 @@ def succumbing():
     (succumbing)
     Persons/Day
 
-
     """
     return susceptible() * infectious() / total_population() * contact_infectivity()
 
@@ -254,7 +239,6 @@ def recovered():
     ---------
     (recovered)
     Persons
-
     These people have recovered from the disease. Yay! Nobody dies in this
                 model.
     """
